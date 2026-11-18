@@ -39,15 +39,16 @@ route53	DNS records that point users to the application
 
 Project Structure
 .
-├── backend.tf                 # S3 remote state configuration
-├── main.tf                    # Calls the modules for each region
-├── providers.tf               # AWS providers for both regions
-├── variables.tf               # Input variables
-├── outputs.tf                 # Output values
-├── terraform.tfvars.example   # Example variable values
-├── .terraform.lock.hcl        # Provider version lock file
-├── bootstrap/                 # One-time setup for remote state
+├── backend.tf                 
+├── main.tf                    
+├── providers.tf              
+├── variables.tf               
+├── outputs.tf                 
+├── terraform.tfvars.example   
+├── .terraform.lock.hcl        
+├── bootstrap/                 
 └── modules/
+
     ├── vpc/
     ├── alb/
     ├── compute/
