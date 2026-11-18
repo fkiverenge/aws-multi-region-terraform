@@ -36,22 +36,25 @@ alb	Application Load Balancer that receives traffic and spreads it across instan
 compute	EC2 instances managed by an Auto Scaling Group
 rds	Amazon RDS database for the application
 route53	DNS records that point users to the application
+
 Project Structure
 .
-├── backend.tf                 # S3 remote state configuration
-├── main.tf                    # Calls the modules for each region
-├── providers.tf               # AWS providers for both regions
-├── variables.tf               # Input variables
-├── outputs.tf                 # Output values
-├── terraform.tfvars.example   # Example variable values
-├── .terraform.lock.hcl        # Provider version lock file
-├── bootstrap/                 # One-time setup for remote state
+├── backend.tf                 
+├── main.tf                    
+├── providers.tf              
+├── variables.tf               
+├── outputs.tf                 
+├── terraform.tfvars.example   
+├── .terraform.lock.hcl        
+├── bootstrap/                 
 └── modules/
+
     ├── vpc/
     ├── alb/
     ├── compute/
     ├── rds/
     └── route53/
+    
 Remote State
 
 Terraform state is stored in an S3 bucket instead of on a local machine. This keeps state safe, shared and versioned, and it uses S3 native state locking (use_lockfile = true), so no DynamoDB table is needed. The bootstrap/ folder sets up what the remote state needs and is run once before the main project.
@@ -61,6 +64,7 @@ Terraform >= 1.10.0 (native S3 locking needs 1.10 or later)
 AWS provider ~> 6.0
 AWS CLI installed and configured with credentials that can create the resources
 Access to the second region. af-south-1 is an opt-in region, so it must be enabled in your AWS account first
+
 Usage
 Clone the repository
 git clone https://github.com/fkiverenge/aws-multi-region-terraform.git
