@@ -1,0 +1,5 @@
+# AWS region for the primary deployment
+aws_region = "eu-west-1"
+
+# CIDR block for the VPC
+vpc_cidr   = "10.10.0.0/16"
